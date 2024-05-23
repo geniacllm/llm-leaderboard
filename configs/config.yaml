@@ -2,7 +2,7 @@ wandb:
   log: True
   entity: "weblab-geniac-leaderboard"
   project: "leaderboard"
-  run_name: 'weblab-geniacN/gpt_0.125B_global_step35000_openassistant' # ご自身のteam名(weblab-geniac{N}, Nは1~8)の後(/以降)、実験管理用にお好きな名前をつけてください
+  run_name: 'weblab-geniac7/exp_001_dMoE_8B_finetune_lr1_epoch2' # 変更可：weblab-geniac7/exp_{num}_{model_name}にします
 
 github_version: v2.0.0 #for recording
 
@@ -15,7 +15,7 @@ api: false
 model:
   use_wandb_artifacts: false
   artifacts_path: ""
-  pretrained_model_name_or_path: "hotsuyuki/gpt_0.125B_global_step35000_openassistant" # huggingfaceのupload先を指定してください
+  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
   trust_remote_code: true
   device_map: "auto"
   load_in_8bit: false
@@ -32,17 +32,17 @@ generator:
 tokenizer:
   use_wandb_artifacts: false
   artifacts_path: ""
-  pretrained_model_name_or_path: "hotsuyuki/gpt_0.125B_global_step35000_openassistant" # huggingfaceのupload先を指定してください
+  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
   use_fast: false
 
 # for llm-jp-eval
-max_seq_length: 2048
+max_seq_length: 2048 # 変更可
 dataset_artifact: "wandb-japan/llm-leaderboard/jaster:v11" #if you use artifacts, please fill here (if not, fill null)
 dataset_dir: "/jaster/1.2.6/evaluation/test"
 target_dataset: "all" # {all, jamp, janli, jcommonsenseqa, jemhopqa, jnli, jsem, jsick, jsquad, jsts, niilc, chabsa}
 log_dir: "./logs"
 torch_dtype: "bf16" # {fp16, bf16, fp32}
-custom_prompt_template: null
+custom_prompt_template: "<s>以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。\n\n### 指示:\n{instruction}\n\n### 入力:\n{input}\n\n### 応答:\n" # 変更可
 
 custom_fewshots_template: null
 # Please include {input} and {output} as variables
@@ -50,7 +50,7 @@ custom_fewshots_template: null
 # "\n### 入力：\n{input}\n### 回答：\n{output}"
 
 metainfo:
-  basemodel_name: "hotsuyuki/gpt_0.125B_global_step35000_openassistant"
+  basemodel_name: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
   model_type: "open llm" # {open llm, commercial api}
   instruction_tuning_method: "None" # {"None", "Full", "LoRA", ...}
   instruction_tuning_data: ["None"] # {"None", "jaster", "dolly_ja", "oasst_ja", ...}
@@ -66,10 +66,10 @@ mtbench:
   model_id: null # cannot use '<', '>', ':', '"', '/', '\\', '|', '?', '*', '.'
   question_begin: null
   question_end: null
-  max_new_token: 1024
+  max_new_token: 1024 # 変更可
   num_choices: 1
-  num_gpus_per_model: 1
-  num_gpus_total: 1
+  num_gpus_per_model: 1 # 変更可
+  num_gpus_total: 1 # 変更可
   max_gpu_memory: null
   dtype: bfloat16 # None or float32 or float16 or bfloat16
   # for gen_judgment
@@ -79,13 +79,13 @@ mtbench:
   parallel: 1
   first_n: null
   # for conv template # added
-  custom_conv_template: true
+  custom_conv_template: true # 変更可
   # the following variables will be used when custom_conv_template is set as true
   conv_name: "custom"
-  conv_system_message: "<s>以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。"
-  conv_roles: "('指示', '応答')"
-  conv_sep: "\n\n### "
-  conv_stop_token_ids: "[2]"
-  conv_stop_str: "###"
-  conv_role_message_separator: ": \n"
-  conv_role_only_separator: ": \n"
+  conv_system_message: "<s>以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。" # 変更可
+  conv_roles: "('指示', '応答')" # 変更可
+  conv_sep: "\n\n### " # 変更可
+  conv_stop_token_ids: "[2]" # 変更可（おそらく使われていない）
+  conv_stop_str: "###" # 変更可（おそらく使われていない）
+  conv_role_message_separator: ":\n" # 変更可（llm-jp-evalに合わせて改行前のスペースは削除した）
+  conv_role_only_separator: ":\n" # 変更可（llm-jp-evalに合わせて改行前のスペースは削除した）
