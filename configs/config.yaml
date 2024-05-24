@@ -2,7 +2,7 @@ wandb:
   log: True
   entity: "weblab-geniac-leaderboard"
   project: "leaderboard"
-  run_name: 'weblab-geniac7/exp_001_dMoE_8B_finetune_lr1_epoch2' # 変更可：weblab-geniac7/exp_{num}_{model_name}にします
+  run_name: 'weblab-geniac2/exp_001_dMoE_8B_finetune_lr1_epoch2' # 変更可：weblab-geniac7/exp_{num}_{model_name}にします
 
 github_version: v2.0.0 #for recording
 
