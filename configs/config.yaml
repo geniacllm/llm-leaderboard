@@ -2,7 +2,7 @@ wandb:
   log: True
   entity: "weblab-geniac-leaderboard"
   project: "leaderboard"
-  run_name: 'weblab-geniac2/exp_001_dMoE_8B_finetune_lr1_epoch2' # 変更可：weblab-geniac7/exp_{num}_{model_name}にします
+  run_name: 'weblab-geniac2/exp_002_dMoE_8B_finetune_single_multi_epoch2_v0.1' # 変更可：weblab-geniac7/exp_{num}_{model_name}にします
 
 github_version: v2.0.0 #for recording
 
@@ -15,7 +15,7 @@ api: false
 model:
   use_wandb_artifacts: false
   artifacts_path: ""
-  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
+  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_single_multi_epoch2_v0.1" # 変更可
   trust_remote_code: true
   device_map: "auto"
   load_in_8bit: false
@@ -32,7 +32,7 @@ generator:
 tokenizer:
   use_wandb_artifacts: false
   artifacts_path: ""
-  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
+  pretrained_model_name_or_path: "geniacllm/dMoE_8B_finetune_single_multi_epoch2_v0.1" # 変更可
   use_fast: false
 
 # for llm-jp-eval
@@ -50,7 +50,7 @@ custom_fewshots_template: null
 # "\n### 入力：\n{input}\n### 回答：\n{output}"
 
 metainfo:
-  basemodel_name: "geniacllm/dMoE_8B_finetune_lr1_epoch2" # 変更可
+  basemodel_name: "geniacllm/dMoE_8B_finetune_single_multi_epoch2_v0.1" # 変更可
   model_type: "open llm" # {open llm, commercial api}
   instruction_tuning_method: "None" # {"None", "Full", "LoRA", ...}
   instruction_tuning_data: ["None"] # {"None", "jaster", "dolly_ja", "oasst_ja", ...}
