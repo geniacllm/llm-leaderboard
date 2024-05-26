@@ -85,7 +85,7 @@ mtbench:
   conv_system_message: "<s>以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。" # 変更可
   conv_roles: "('指示', '応答')" # 変更可
   conv_sep: "\n\n### " # 変更可
-  conv_stop_token_ids: "[2]" # 変更可（おそらく使われていない）
-  conv_stop_str: "###" # 変更可（おそらく使われていない）
+  conv_stop_token_ids: "[2]"
+  conv_stop_str: "###"
   conv_role_message_separator: ":\n" # 変更可（llm-jp-evalに合わせて改行前のスペースは削除した）
   conv_role_only_separator: ":\n" # 変更可（llm-jp-evalに合わせて改行前のスペースは削除した）
