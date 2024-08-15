@@ -128,4 +128,8 @@ for mtbench
 ```bash
 python3 scripts/run_eval.py
 ```
-2. check the wandb dashboard
+
+
+# License
+This repository is available for commercial use. However, please adhere to the respective rights and licenses of each evaluation dataset used.
+
